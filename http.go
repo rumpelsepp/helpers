@@ -12,7 +12,6 @@ func SendJSON(w http.ResponseWriter, jsonObject interface{}) error {
 	// actual error.
 	bs, err := json.Marshal(jsonObject)
 	if err != nil {
-		SendJSONError(w, err.Error(), http.StatusInternalServerError)
 		return err
 	}
 	fmt.Fprintf(w, "%s\n", bs)
@@ -23,7 +22,6 @@ func RecvJSON(w http.ResponseWriter, r *http.Request) (interface{}, error) {
 	var data map[string]interface{}
 	decoder := json.NewDecoder(r.Body)
 	if err := decoder.Decode(&data); err != nil {
-		SendJSONError(w, err.Error(), http.StatusBadRequest)
 		return nil, err
 	}
 	return data, nil
