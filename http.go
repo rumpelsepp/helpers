@@ -18,13 +18,12 @@ func SendJSON(w http.ResponseWriter, jsonObject interface{}) error {
 	return nil
 }
 
-func RecvJSON(r *http.Request) (interface{}, error) {
-	var data map[string]interface{}
+func RecvJSON(r *http.Request, data interface{}) error {
 	decoder := json.NewDecoder(r.Body)
 	if err := decoder.Decode(&data); err != nil {
-		return nil, err
+		return err
 	}
-	return data, nil
+	return nil
 }
 
 func SendJSONError(w http.ResponseWriter, err string, code int) {
