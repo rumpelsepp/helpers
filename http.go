@@ -18,7 +18,7 @@ func SendJSON(w http.ResponseWriter, jsonObject interface{}) error {
 	return nil
 }
 
-func RecvJSON(w http.ResponseWriter, r *http.Request) (interface{}, error) {
+func RecvJSON(r *http.Request) (interface{}, error) {
 	var data map[string]interface{}
 	decoder := json.NewDecoder(r.Body)
 	if err := decoder.Decode(&data); err != nil {
