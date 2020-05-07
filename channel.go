@@ -16,6 +16,7 @@ func (bc *Broadcaster) Serve() {
 			n := copy(buf, data)
 			listener <- buf[:n]
 		}
+		bc.MemPool.Put(data)
 	}
 	for _, ch := range bc.OutChs {
 		close(ch)
