@@ -2,6 +2,7 @@ package helpers
 
 import (
 	"os"
+	"path/filepath"
 	"strconv"
 )
 
@@ -12,4 +13,12 @@ func GetEnvBool(name string) bool {
 		}
 	}
 	return false
+}
+
+func ConfigPath(name string) string {
+	p, err := os.UserConfigDir()
+	if err != nil {
+		panic(err)
+	}
+	return filepath.Join(p, name)
 }
