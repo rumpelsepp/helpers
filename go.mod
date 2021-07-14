@@ -1,6 +1,6 @@
-module git.sr.ht/~rumpelsepp/helpers
+module codeberg.org/rumpelsepp/helpers
 
-go 1.14
+go 1.16
 
 require (
 	golang.org/x/crypto v0.0.0-20200302210943-78000ba7a073
