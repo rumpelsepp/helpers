@@ -1,4 +1,4 @@
-module codeberg.org/rumpelsepp/helpers
+module github.com/rumpelsepp/helpers
 
 go 1.17
 
